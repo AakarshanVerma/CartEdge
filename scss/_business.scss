@@ -1,61 +1,110 @@
-.best_business_area{  
-    padding: 100px 165px 40px; 
+.best_business_area {  
+    padding: 100px 10vw 60px; 
     position: relative;
     overflow: hidden; 
-    &:before{
+    background-color: #f9f9fb; // adds a soft contrast background
+
+    &:before {
         content: "Why Choose Us";
         position: absolute;
-        left: 50px;
-        top: -90px;
+        left: 3%;
+        top: -70px;
         right: 0;
-        font: 700 253px/1 $fira;
-        color:rgba(66, 78, 94, 0.051);
+        font: 700 220px/1 $fira;
+        color: rgba(66, 78, 94, 0.05);
         display: block;
-        letter-spacing: 4px;
+        letter-spacing: 5px;
+        z-index: 0;
+        pointer-events: none;
     }
-    .it_works{
+
+    .it_works {
         position: relative; 
-        padding-top: 90px;
+        padding-top: 80px;
         z-index: 1; 
-        .business_content{
-            padding-bottom: 30px;
-            img{
+
+        .business_content {
+            padding-bottom: 40px;
+            text-align: center;
+
+            img {
                 max-width: 100%;
-                border-radius: 3px;
-                @include transition;
+                border-radius: 8px;
+                border: 10px solid #fff;
+                box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
                 cursor: pointer;
-                border: 15px solid #fff;
-                box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.21);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                &:hover {
+                    transform: translateY(-8px);
+                    box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.12);
+                }
             }
-            .media{
-                padding-top: 10px;
-                .media-left{
-                    padding-right: 20px;
-                    h2{
-                        font: 700 72px $fira;
+
+            .media {
+                padding-top: 20px;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                text-align: left;
+                gap: 15px;
+
+                .media-left {
+                    h2 {
+                        font: 700 68px $fira;
                         color: $hover;
+                        margin: 0;
                     }
                 }
-                .media-body{
-                    padding-top: 15px;
-                    a{
-                        font: 500 18px $fira; 
+
+                .media-body {
+                    padding-top: 10px;
+
+                    a {
+                        font: 600 20px $fira; 
                         color: $heading;
+                        transition: color 0.3s ease;
                     }
-                    p{
+
+                    p {
                         font: 400 16px/26px $fira;
                         color: $p;
-                        padding-top: 10px;
-                        color: $p;
-                    } 
+                        margin-top: 8px;
+                        max-width: 500px;
+                    }
                 }
-                &:hover, &:focus{
-                    .media-body a{
+
+                &:hover, &:focus {
+                    .media-body a {
                         color: $hover;
                     }
                 }
             } 
         }
     }
-}   
- 
+
+    // Responsive tweaks
+    @media (max-width: 992px) {
+        padding: 80px 6vw;
+        &:before {
+            font-size: 160px;
+            top: -50px;
+        }
+        .media {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 576px) {
+        padding: 60px 5vw;
+        &:before {
+            font-size: 120px;
+            top: -40px;
+        }
+        .business_content img {
+            border-width: 8px;
+        }
+    }
+}
