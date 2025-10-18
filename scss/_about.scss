@@ -1,59 +1,137 @@
-.about_rogram{ 
-    padding-top: 100px; 
-    padding-bottom: 130px;
-    position: relative;
-    display: block;
-    overflow: hidden;
-    &:before{
-        content: "About";
+.about_program { 
+  padding: 100px 0 130px;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background-color: #fff; // optional, ensures readability
+
+  // Background "About" text
+  &:before {
+    content: "About";
+    position: absolute;
+    left: -60px;
+    top: -40px;
+    font: 700 230px/1 $fira;
+    color: rgba(66, 78, 94, 0.05);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  // Section title
+  .check_tittle {
+    text-align: left;
+    padding-top: 20px;
+
+    h2 {
+      text-align: left;
+      position: relative;
+      display: inline-block;
+
+      &:after {
+        content: "";
         position: absolute;
-        left: -80px;
-        top: -50px;
-        font: 700 253px/1 $fira;
-        color:rgba(66, 78, 94, 0.051);
+        bottom: -8px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: $hover;
+        border-radius: 2px;
+      }
     }
-    .check_tittle{
-        text-align: left;
-        padding-top: 20px;
-        h2{
-            text-align: left;
-            &:after{
-                transform: none;
-                left: 0;
-            }
-        }
+  }
+
+  // Paragraphs / description text
+  p {
+    font: 400 16px/28px $muli;
+    color: $p;
+    max-width: 500px;
+    padding-top: 80px;
+
+    + p {
+      padding-top: 25px;
     }
-    p{
-        font: 400 16px/26px $muli;
-        color: $p;
-        max-width:440px;
-        padding-top: 90px;
-        +p{
-            padding-top: 30px;
-        }
+  }
+
+  // Image arrangement
+  .about_images { 
+    position: relative;
+    padding-left: 80px;
+    margin-top: 50px;
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      transition: transform 0.4s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
     }
-    .about_images{ 
+
+    .item {
+      padding-left: 100px;
+      cursor: pointer;
+    }
+
+    .item2 {
+      position: absolute;
+      bottom: -160px;
+      left: 40px;
+      cursor: pointer;
+    }
+
+    .item3 {
+      position: absolute;
+      right: -150px;
+      top: 60px;
+      z-index: -1;
+      cursor: pointer;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    &:before {
+      font-size: 150px;
+      left: -40px;
+      top: -30px;
+    }
+
+    .about_images {
+      padding-left: 0;
+      margin-top: 40px;
+
+      .item,
+      .item2,
+      .item3 {
         position: relative;
-        padding-left: 80px; 
-        img{
-            max-width: 100%; 
-        }
-        .item{
-            padding-left: 110px; 
-            cursor: pointer; 
-        } 
-        .item2{ 
-            position: absolute;
-            bottom: -190px;
-            cursor: pointer;
-        }
-        .item3{
-            position: absolute;
-            right: -183px;
-            top: 72px;
-            z-index: -1;
-            cursor: pointer;  
-        }
+        padding: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+      }
     }
+
+    p {
+      max-width: 100%;
+      padding-top: 50px;
+      text-align: justify;
+    }
+  }
+
+  @media (max-width: 576px) {
+    &:before {
+      font-size: 90px;
+      left: 0;
+      top: 0;
+    }
+
+    .check_tittle h2 {
+      font-size: 24px;
+    }
+  }
 }
- 
